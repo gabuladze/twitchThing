@@ -41,7 +41,19 @@ function getChannelInfo() {
 
 $(document).ready(function() {
   getChannelInfo();
-  online.on("click", function() {
-    
+  onlineBtn.on("click", function(){
+    channelList.find(".online").removeClass("hidden");
+    channelList.find(".offline").addClass("hidden");
+    channelList.find(".closed").addClass("hidden");
+  });
+  offlineBtn.on("click", function() {
+    channelList.find(".offline").removeClass("hidden");
+    channelList.find(".online").addClass("hidden");
+    channelList.find(".closed").addClass("hidden");
+  });
+  allBtn.on("click", function() {
+    channelList.find(".online").removeClass("hidden");
+    channelList.find(".offline").removeClass("hidden");
+    channelList.find(".closed").removeClass("hidden");
   });
 });
