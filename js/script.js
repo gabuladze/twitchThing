@@ -3,7 +3,8 @@ var onlineBtn = $("#online");
 var offlineBtn = $("#offline");
 var allBtn = $("#all");
 var channels = ["freecodecamp", "storbeck", "terakilobyte", "habathcx",
-              "RobotCaleb","thomasballinger","noobs2ninjas","beohoff", "tr7k", "brunofin", "beyondthesummit"];
+              "RobotCaleb","thomasballinger","noobs2ninjas","beohoff",
+              "tr7k", "brunofin", "beyondthesummit"];
 
 function getChannelInfo() {
   channels.forEach(function(channel) {
@@ -26,16 +27,13 @@ function getChannelInfo() {
       }
 
       $.getJSON(makeUrl("channels", channel), function(channelData) {
-        var logo = channelData.logo == null ? "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/100px-No_image_available.svg.png" : channelData.logo;
+        var logo = channelData.logo == null ? "http://i.imgur.com/8NaVgiP.png" : channelData.logo;
         var name = channelData.display_name ? channelData.display_name : channel;
 
-        var listItem = "<a target='_blank' href='"+channelData.url+"'><li class='"+status+" media'><div class='media-left'><img class='media-object' src='"+logo+"'></div><div class='media-body'><h1><strong>"+name+"</strong></h1><h2>"+game+"</h2></div></li></a>";
+        var listItem = "<a target='_blank' href='"+channelData.url+"'><li class='"+status+" media channel'><div class='media-left'><img class='media-object' src='"+logo+"'></div><div class='media-body'><h1><strong>"+name+"</strong></h1><h2>"+game+"</h2></div></li></a>";
         status === "online" ? channelList.prepend(listItem) : channelList.append(listItem);
       });
-
     });
-
-
   });
 }
 
