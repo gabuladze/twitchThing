@@ -6,6 +6,7 @@ var channels = ["freecodecamp", "storbeck", "terakilobyte", "habathcx",
               "RobotCaleb","thomasballinger","noobs2ninjas","beohoff",
               "tr7k", "brunofin", "beyondthesummit"];
 
+// Fetch channel info and display it on page
 function getChannelInfo() {
   channels.forEach(function(channel) {
     function makeUrl(type, channelName) {
